@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pb;
+
+service Monitor {
+  rpc HeartBeat (HeartBeatRequest) returns (HeartBeatResponse);
+}
+
+message HeartBeatRequest {
+  uint32 node_id = 1;
+}
+
+message HeartBeatResponse {
+  bool ok = 1;
+}
