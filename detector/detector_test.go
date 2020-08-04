@@ -1,4 +1,4 @@
-package fd
+package detector
 
 import (
 	"math"
