@@ -2,7 +2,7 @@
 Implementation of Phi-Accrual Failure Detector with Golang
 
 The protocol samples arrival times of heartbeats and maintains sliding window
-of most recent samlples. This window is used to estimate the arrival time of
+of most recent samples. This window is used to estimate the arrival time of
 the next heartbeat. The distribution of past samples is used as an
 approximation for the probabilistic distribution of future hearbeat messages.
 With this information can compute phi with a scale that changes dynamically
