@@ -9,7 +9,10 @@ With this information can compute phi with a scale that changes dynamically
 to match recent network conditions.
 
 ## TODO
-Add monitor and heartbeater
+* Plug in udp monitor to phi-accrual
+* Make 'nice' dev example graphic to display running bar chart of predictions
+(with big timeout eg 1s)
+* Make configurable and lib interface
 
 ## Resources
 * [The φ accrual failure detector](https://dspace.jaist.ac.jp/dspace/bitstream/10119/4784/1/IS-RR-2004-010.pdf)
