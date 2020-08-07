@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  server.1.phifd:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile
+      args:
+        ID: 1
+    networks:
+      phifd-net:
+        aliases:
+         - server.1.phifd
+
+  server.2.phifd:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile
+      args:
+        ID: 2
+    networks:
+      phifd-net:
+        aliases:
+         - server.2.phifd
+
+  server.3.phifd:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile
+      args:
+        ID: 3
+    networks:
+      phifd-net:
+        aliases:
+         - server.3.phifd
+
+  server.4.phifd:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile
+      args:
+        ID: 4
+    networks:
+      phifd-net:
+        aliases:
+         - server.4.phifd
+
+  server.5.phifd:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile
+      args:
+        ID: 5
+    networks:
+      phifd-net:
+        aliases:
+         - server.5.phifd
+
+networks:
+  phifd-net:
+    driver: bridge
