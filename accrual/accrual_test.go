@@ -30,6 +30,20 @@ func TestAccrualPhiOneHeartbeat(t *testing.T) {
 	}
 }
 
+func TestAccrualPhiBeforeLast(t *testing.T) {
+	acc := NewAccrual(5)
+	acc.Heartbeat(100)
+	acc.Heartbeat(200)
+
+	expected := Suspicion{0.0, 2}
+
+	var time uint64 = 150
+	suspicion := acc.Phi(time)
+	if !suspicion.Equal(expected) {
+		t.Errorf("acc.Phi(%d) != %#v, actual %#v", time, expected, suspicion)
+	}
+}
+
 func TestAccrualPhiMultiHeartbeat(t *testing.T) {
 	acc := NewAccrual(5)
 	acc.Heartbeat(100)

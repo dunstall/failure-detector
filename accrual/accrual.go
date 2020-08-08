@@ -21,7 +21,7 @@ func (s *Suspicion) Equal(u Suspicion) bool {
 type Accrual struct {
 	window Window
 	last   uint64
-	mu     sync.Mutex
+	mu     sync.Mutex // TODO RWMutex
 }
 
 func NewAccrual(size uint64) Accrual {
@@ -52,6 +52,11 @@ func (acc *Accrual) Phi(t uint64) Suspicion {
 		}
 	}
 
+	if t < acc.last {
+		return Suspicion{0, acc.window.Len() + 1}
+	}
+
+	// Adapted from https://github.com/dgryski/go-failure.
 	diff := t - acc.last
 	pLater := 1 - cdf(acc.window.Mean(), acc.window.StdDev(), float64(diff))
 	phi := -math.Log10(pLater)
