@@ -38,6 +38,7 @@ func (m *UDPMonitor) Heartbeats() <-chan Heartbeat {
 
 func (m *UDPMonitor) Close() error {
 	close(m.done)
+	close(m.heartbeats)
 	return m.lis.Close()
 }
 
