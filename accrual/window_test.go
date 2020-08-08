@@ -5,10 +5,6 @@ import (
 	"testing"
 )
 
-const (
-	floatCompThreshold = 1e-6
-)
-
 func TestWindowInitiallyLengthZero(t *testing.T) {
 	w := NewWindow(4)
 	var expectedLen uint64 = 0
