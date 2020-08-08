@@ -21,7 +21,7 @@ func (s *Suspicion) Equal(u Suspicion) bool {
 type Accrual struct {
 	window Window
 	last   uint64
-	mu     sync.Mutex // TODO RWMutex
+	mu     sync.RWMutex
 }
 
 func NewAccrual(size uint64) Accrual {
@@ -41,8 +41,8 @@ func (acc *Accrual) Heartbeat(t uint64) {
 // Phi returns the suspicion level of the failure detector and the number of
 // samples used.
 func (acc *Accrual) Phi(t uint64) Suspicion {
-	acc.mu.Lock()
-	defer acc.mu.Unlock()
+	acc.mu.RLock()
+	defer acc.mu.RUnlock()
 
 	if acc.window.Len() == 0 {
 		if acc.last == 0 {
