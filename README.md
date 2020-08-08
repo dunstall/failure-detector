@@ -13,6 +13,7 @@ to match recent network conditions.
 * Make 'nice' dev example graphic to display running bar chart of predictions
 (with big timeout eg 1s)
 * Make configurable and lib interface
+* Acceptance testing (docker to kill nodes?) see Kafka, etcd...
 
 ## Resources
 * [The φ accrual failure detector](https://dspace.jaist.ac.jp/dspace/bitstream/10119/4784/1/IS-RR-2004-010.pdf)
